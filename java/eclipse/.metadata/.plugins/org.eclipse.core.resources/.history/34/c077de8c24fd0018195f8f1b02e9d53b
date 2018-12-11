@@ -1,0 +1,28 @@
+/**
+ * 功能:服务器,在9999端口监听
+ * 可以通过控制台,输入回送的信息
+ */
+package com.test1;
+import java.io.*;
+import java.net.ServerSocket;
+
+public class MyServer1 {
+
+	public static void main(String[] args) {
+		// TODO 自动生成的方法存根
+
+	}
+	
+	public MyServer1()
+	{
+		try {
+			ServerSocket ss = new ServerSocket(9999);
+			Socket s = ss.accept();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

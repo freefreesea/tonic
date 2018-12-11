@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="System" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="system"/>
+			<item value="bomb"/>
+			<item value="draw3DRect"/>
+			<item value="vector3"/>
+			<item value="Up"/>
+			<item value="y"/>
+			<item value="x"/>
+			<item value="g.fill3DRect(x, y, 5, 30,false);"/>
+			<item value="hero.getY()"/>
+			<item value="hero.getX()"/>
+		</list>
+		<list key="replacehistory">
+			<item value="bombs.get(i)"/>
+			<item value="fill3DRect"/>
+			<item value="vector4"/>
+			<item value="0"/>
+			<item value="tank.getY()"/>
+			<item value="tank.getX()"/>
+			<item value="y"/>
+			<item value="x"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="356" key="DIALOG_WIDTH"/>
+		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
+		<item value="381" key="DIALOG_HEIGHT"/>
+		<item value="1049" key="DIALOG_X_ORIGIN"/>
+		<item value="397" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

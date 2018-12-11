@@ -1,0 +1,31 @@
+/**
+ * 这是第一个服务器监听程序,让他在9999号端口监听
+ * 可以接受从客户端发来的信息
+ * 
+ */
+package com.test1;
+
+import java.io.IOException;
+import java.net.*;
+
+public class MyServer1 {
+	
+	public static void main(String []args)
+	{
+		MyServer1 myServer1 = new MyServer1();
+	}
+
+	public MyServer1()
+	{
+		try {
+			//在9999号端口监听
+			ServerSocket ss = new ServerSocket(9999);
+			System.out.println(1);
+			//等待某个客户端来连接,该函数会返回一个Socket连接
+			Socket s = ss.accept();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}	

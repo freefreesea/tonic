@@ -1,0 +1,44 @@
+/**
+ * 我的记事本(界面+功能)
+ */
+package com.test1;
+import java.io.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+
+public class Notepad extends JFrame{
+	
+	//定义需要的组件
+	JTextArea jta = null;
+	//菜单条
+	JMenuBar jmb=null;
+	//第一JMenu
+	JMenu jm1 = null;
+	//JMenuItem
+	JMenuItem jmi1=null; 
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Notepad np=new Notepad();
+	}
+	
+	//构造函数
+	public Notepad()
+	{
+		//创建jta
+		jta = new JTextArea();
+		jmb = new JMenuBar();
+		jm1 = new JMenu("打开(o)");
+		//设置助记符
+		jm1.setMnemonic('F');
+		jmi1 = new JMenuItem("打开",new ImageIcon(""));
+		
+		//放入JFrame
+		this.add(jta);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setVisible(true);
+		this.setSize(400,300);
+	}
+}

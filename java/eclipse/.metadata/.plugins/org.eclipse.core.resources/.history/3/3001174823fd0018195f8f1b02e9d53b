@@ -1,0 +1,14 @@
+/**
+ * 功能:服务器,在9999端口监听
+ * 可以通过控制台,输入回送的信息
+ */
+package com.test1;
+
+public class MyServer1 {
+
+	public static void main(String[] args) {
+		// TODO 自动生成的方法存根
+
+	}
+
+}

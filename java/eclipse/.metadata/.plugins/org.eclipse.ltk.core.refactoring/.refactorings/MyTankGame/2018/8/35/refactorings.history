@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 3 elements to &apos;ZzMyOwnNotePad/src&apos;&#x0D;&#x0A;- Original project: &apos;MyTankGame&apos;&#x0D;&#x0A;- Destination element: &apos;ZzMyOwnNotePad/src&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     image4.jpg&#x0D;&#x0A;     image6.jpg&#x0D;&#x0A;     image5.jpg" description="Copy files" destination="=ZzMyOwnNotePad/src" element1="src/image4.jpg" element2="src/image6.jpg" element3="src/image5.jpg" files="3" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1535332876783" units="0" version="1.0"/>
+</session>

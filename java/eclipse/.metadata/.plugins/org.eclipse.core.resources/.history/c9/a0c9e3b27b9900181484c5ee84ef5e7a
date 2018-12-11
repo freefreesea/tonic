@@ -1,0 +1,217 @@
+package com.test1;
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class MyTankGame extends JFrame{
+	public static void main(String[] args) {
+		MyTankGame myTankGame = new MyTankGame();
+	}
+
+	public MyTankGame()
+	{
+		MyPanel mp = new MyPanel();
+		Thread thread2 = new Thread(mp);
+		
+		thread2.start();
+		this.add(mp);
+		this.addKeyListener(mp);
+		
+		this.setSize(400, 300);													
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setLocation(100, 100);
+		this.setVisible(true);
+	}
+}
+
+class MyPanel extends JPanel implements KeyListener,Runnable
+{
+	Tank hero1;
+	Tank enemy1;
+	Tank enemy2;									//只需
+	Tank enemy3;
+	
+	public MyPanel()
+	{
+		hero1 = new Hero(200,200,5,"Up",true);						//定义坦克
+		enemy1 = new Enemy(30, 30, 5, "Down", true);
+		enemy2 = new Enemy(150, 30, 5, "Right", true);
+		enemy3 = new Enemy(300, 30, 5, "Right", true);
+	}
+	
+	public void paint(Graphics g)
+	{
+		super.paint(g);
+		g.fillRect(0, 0, 400, 300);
+		this.drawtank(hero1, g);								//然后在这画出来  就行了
+		this.drawtank(enemy1, g);
+		this.drawtank(enemy2, g);
+		this.drawtank(enemy3, g);
+		this.drawBullet(g);
+	}
+	
+	public void drawtank(Tank tank,Graphics g)
+	
+	{
+		switch(tank.getIsHero())
+		{
+		case 1:
+			g.setColor(Color.YELLOW);
+			break;
+		case 0:
+			g.setColor(Color.CYAN);
+			break;
+		}
+		switch(tank.direct)
+		{
+		case "Up":    
+			//画出我的坦克(到时再封装成一个函数)
+			//1.画出左边的矩形
+			g.fill3DRect(tank.getX(), tank.getY(), 5, 30,false);
+			//2.画出右边矩形
+			g.fill3DRect(tank.getX()+15, tank.getY(), 5, 30,false);
+			//3.画出中间矩形
+			g.fill3DRect(tank.getX()+5, tank.getY()+5, 10, 20,false);
+			//4.画出圆形
+			g.fillOval(tank.getX()+5, tank.getY()+10, 10, 10);
+			//5.画出线
+			g.drawLine(tank.getX()+10, tank.getY()+15, tank.getX()+10, tank.getY());
+			break;
+		case "Right":
+			//画出我的坦克(到时再封装成一个函数)
+			//1.画出左边的矩形
+			g.fill3DRect(tank.getX(), tank.getY(), 30, 5,false);
+			//2.画出右边矩形
+			g.fill3DRect(tank.getX(), tank.getY()+15, 30, 5,false);
+			//3.画出中间矩形
+			g.fill3DRect(tank.getX()+5, tank.getY()+5, 20, 10,false);
+			//4.画出圆形
+			g.fillOval(tank.getX()+10, tank.getY()+5,10 , 10);
+			//5.画出线
+			g.drawLine(tank.getX()+15, tank.getY()+10, tank.getX()+30, tank.getY()+10);
+			break;
+		case "Down":
+			//画出我的坦克(到时再封装成一个函数)
+			//1.画出左边的矩形
+			g.fill3DRect(tank.getX(), tank.getY(), 5, 30,false);
+			//2.画出右边矩形
+			g.fill3DRect(tank.getX()+15, tank.getY(), 5, 30,false);
+			//3.画出中间矩形
+			g.fill3DRect(tank.getX()+5, tank.getY()+5, 10, 20,false);
+			//4.画出圆形
+			g.fillOval(tank.getX()+5, tank.getY()+10, 10, 10);
+			//5.画出线
+			g.drawLine(tank.getX()+10, tank.getY()+15, tank.getX()+10, tank.getY()+30);
+			break;
+		case "Left":
+			//画出我的坦克(到时再封装成一个函数)
+			//1.画出左边的矩形
+			g.fill3DRect(tank.getX(), tank.getY(), 30, 5,false);
+			//2.画出右边矩形
+			g.fill3DRect(tank.getX(), tank.getY()+15, 30, 5,false);
+			//3.画出中间矩形
+			g.fill3DRect(tank.getX()+5, tank.getY()+5, 20, 10,false);
+			//4.画出圆形
+			g.fillOval(tank.getX()+10, tank.getY()+5,10 , 10);
+			//5.画出线
+			g.drawLine(tank.getX()+15, tank.getY()+10, tank.getX(), tank.getY()+10);
+			break;
+		}
+	
+	}
+
+	
+	public void drawBullet(Graphics g)   
+	{
+		for(int i=0;i<this.hero1.vector.size();i++)
+		{
+			if(this.hero1.vector.get(i)!=null&&this.hero1.vector.get(i).islive==true)
+			{
+				switch(this.hero1.vector.get(i).direct)
+				{
+				case "Up":
+					g.draw3DRect(this.hero1.vector.get(i).x, this.hero1.vector.get(i).y, 1, 1, false);
+					break;
+				case "Down":
+					g.draw3DRect(this.hero1.vector.get(i).x, this.hero1.vector.get(i).y, 1, 1, false);
+					break;
+				case "Left":
+					g.draw3DRect(this.hero1.vector.get(i).x, this.hero1.vector.get(i).y, 1, 1, false);
+					break;
+				case "Right":
+					g.draw3DRect(this.hero1.vector.get(i).x, this.hero1.vector.get(i).y, 1, 1, false);
+					break;
+				}
+				if(this.hero1.vector.get(i).islive==false)
+				{
+					this.hero1.vector.remove(i);
+				}
+			}
+		}
+	}
+	
+	
+	//移动完成***********************************************************************************
+	//方向键按下 触发方向改变,坦克坐标移动
+	//j键按下 触发开火功能
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		switch(e.getKeyCode())
+		{
+		case KeyEvent.VK_UP:
+			this.hero1.setDirect("Up");
+			this.hero1.moveUp();
+			break;
+		case KeyEvent.VK_DOWN:
+			this.hero1.setDirect("Down");
+			this.hero1.moveDown();
+			break;
+		case KeyEvent.VK_LEFT:
+			this.hero1.setDirect("Left");
+			this.hero1.moveLeft();
+			break;
+		case KeyEvent.VK_RIGHT:
+			this.hero1.setDirect("Right");
+			this.hero1.moveRight();
+			break;
+		}
+		if(e.getKeyCode()==KeyEvent.VK_J)
+		{
+			if(this.hero1.vector.size()<=4)
+			{
+				this.hero1.fire();
+				System.out.println("启动fire");
+			}
+		}
+		this.repaint();
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		while(true)
+		{
+			try {
+				Thread.sleep(100);
+			} catch (Exception e) {
+				e.printStackTrace();
+				// TODO: handle exception
+			}
+			
+			this.repaint();
+		}
+	}
+}

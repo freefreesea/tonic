@@ -1,0 +1,223 @@
+package com.test1;
+import java.util.*;
+
+//坦克类
+//有坐标 速度 方向 子弹
+//构造出来带五个参数
+//有上下左右移动功能
+//有开火功能 		开火功能:创建一个子弹对象放入集合 开启线程
+class Tank   
+{
+	Vector<Bullet> vector = new Vector<Bullet>();
+	Bullet bullet;
+	//坐标 速度 方向 死活 
+	int x;
+	int y;
+	int isHero;
+	int speed;
+	String direct;
+	boolean isLive;
+	
+	public Tank(int x,int y,int speed,String direct,boolean isLive)
+	{
+		this.x=x;
+		this.y=y;
+		this.speed=speed;
+		this.direct=direct;
+		this.isLive=isLive;
+	}
+	
+	public void fire()
+	{
+			bullet = new Bullet(this);
+			vector.add(bullet);
+			Thread thread = new Thread(bullet);
+			thread.start();
+			//System.out.println("我在fire里面");
+	}
+	
+	public void moveUp()
+	{
+		y-=speed;
+	}
+	public void moveDown()
+	{
+		y+=speed;
+	}
+	public void moveLeft()
+	{
+		x-=speed;
+	}
+	public void moveRight()
+	{
+		x+=speed;
+	}
+	
+	
+	public int getX() {
+		return x;
+	}
+	public void setX(int x) {
+		this.x = x;
+	}
+	public int getY() {
+		return y;
+	}
+	public void setY(int y) {
+		this.y = y;
+	}
+	public int getSpeed() {
+		return speed;
+	}
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
+	public String getDirect() {
+		return direct;
+	}
+	public void setDirect(String direct) {
+		this.direct = direct;
+	}
+	public boolean isLive() {
+		return isLive;
+	}
+	public void setLive(boolean isLive) {
+		this.isLive = isLive;
+	}
+
+	public int getIsHero() {
+		return isHero;
+	}
+
+	public void setIsHero(int isHero) {
+		this.isHero = isHero;
+	}
+	
+	
+	
+}
+
+//子弹类
+//有坐标 速度 是谁的子弹 是否活着
+//创建出来引用一个tank参数  自己的坐标 方向 速度
+//有移动功能
+class Bullet implements Runnable					
+{
+	Tank tank;
+	int x;
+	int y;
+	int bulletSpeed = 1;
+	boolean islive=true;
+	String direct;
+	
+
+	//子弹打出来 (创建)就有了坐标
+	public Bullet(Tank tank)
+	{
+		System.out.println("创建bullet");
+		this.tank=tank;
+		this.direct=tank.direct;
+		switch(this.direct)
+		{
+		case "Up":
+			this.x=tank.x+10;
+			this.y=tank.y;
+			//System.out.println("创建一个"+x+"    "+y);
+			break;
+		case "Down":
+			this.x=tank.x+10;
+			this.y=tank.y+30;
+			break;
+		case "Left":
+			this.x=tank.x;
+			this.y=tank.y+10;
+			break;
+		case "Right":
+			this.x=tank.x+30;
+			this.y=tank.y+10;
+			break;
+		}
+	}
+
+	public void moveUp()
+	{
+		y-=bulletSpeed;
+		System.out.println("运行了moveup");
+		System.out.println("坐标是"+x+"   "+y);
+	}
+	public void moveDown()
+	{
+		y+=bulletSpeed;
+	}
+	public void moveLeft()
+	{
+		x-=bulletSpeed;
+	}
+	public void moveRight()
+	{
+		x+=bulletSpeed;
+	}
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		while(true)
+		{
+			switch(this.direct)
+			{
+			case "Up":
+				moveUp();
+				break;
+			case "Left":
+				moveLeft();
+				break;
+			case "Down":
+				moveDown();
+				break;
+			case "Right":
+				moveRight();
+				break;
+			}
+			
+			try {
+				Thread.sleep(50);
+			} catch (Exception e) {
+				e.getStackTrace();
+			}
+			System.out.println("坐标x="+x+"  y="+y);
+			
+			//判断该子弹是否撞到边缘
+			if(x<0||x>400||y<0||y>300)
+			{
+				//this.islive=false;
+				break;
+			}
+		}
+	}
+}
+
+
+class Hero extends Tank
+{
+	public int getIsHero()
+	{
+		return 1;
+	}
+	public Hero(int x,int y,int speed,String direct,boolean isLive)
+	{
+		super(x,y,speed,direct,isLive);
+	}
+}
+
+
+class Enemy extends Tank
+{
+	public int getIsHero()
+	{
+		return 0;
+	}
+	public Enemy(int x, int y, int speed, String direct, boolean isLive)
+	{
+		super(x, y, speed, direct, isLive);
+	}
+	
+}

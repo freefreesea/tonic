@@ -1,0 +1,110 @@
+2018-06-20 17:57:18,129 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-06-21 10:14:42,480 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-21 12:05:16,147 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-21 14:22:37,511 [Worker-55] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:ctor:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Could not transfer artifact jre:jre:zip:ctor:1.0.0-20171109.080357-1 from/to models (http://download.eclipse.org/recommenders/models/oxygen/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:453) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:255) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:232) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:303) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.5.2.v20180401-1226.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.5.2.v20180401-1226.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:168) [org.eclipse.recommenders.models.rcp_2.5.2.v20180401-1226.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.5.2.v20180401-1226.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56) [org.eclipse.core.jobs_3.9.3.v20180115-1757.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Could not transfer artifact jre:jre:zip:ctor:1.0.0-20171109.080357-1 from/to models (http://download.eclipse.org/recommenders/models/oxygen/): download.eclipse.org
+	at org.eclipse.aether.connector.basic.ArtifactTransportListener.transferFailed(ArtifactTransportListener.java:52) ~[org.apache.maven.resolver.connector.basic_1.0.3.v20170405-0725.jar:1.0.3]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$TaskRunner.run(BasicRepositoryConnector.java:364) ~[org.apache.maven.resolver.connector.basic_1.0.3.v20170405-0725.jar:1.0.3]
+	at org.eclipse.aether.util.concurrency.RunnableErrorForwarder$1.run(RunnableErrorForwarder.java:76) ~[na:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$DirectExecutor.execute(BasicRepositoryConnector.java:590) ~[org.apache.maven.resolver.connector.basic_1.0.3.v20170405-0725.jar:1.0.3]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector.get(BasicRepositoryConnector.java:258) ~[org.apache.maven.resolver.connector.basic_1.0.3.v20170405-0725.jar:1.0.3]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:529) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:430) ~[na:na]
+	... 8 common frames omitted
+Caused by: java.net.UnknownHostException: download.eclipse.org
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[na:na]
+	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(Unknown Source) ~[na:na]
+	at java.base/java.net.InetAddress.getAddressesFromNameService(Unknown Source) ~[na:na]
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(Unknown Source) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName0(Unknown Source) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(Unknown Source) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(Unknown Source) ~[na:na]
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45) ~[na:na]
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:262) ~[na:na]
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:161) ~[na:na]
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:328) ~[na:na]
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:612) ~[na:na]
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:447) ~[na:na]
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:884) ~[na:na]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[na:na]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[na:na]
+	at org.apache.http.impl.client.DecompressingHttpClient.execute(DecompressingHttpClient.java:164) ~[na:na]
+	at org.eclipse.aether.transport.http.HttpTransporter.execute(HttpTransporter.java:296) ~[org.apache.maven.resolver.transport.http_1.0.3.v20170405-0725.jar:1.0.3]
+	at org.eclipse.aether.transport.http.HttpTransporter.implGet(HttpTransporter.java:252) ~[org.apache.maven.resolver.transport.http_1.0.3.v20170405-0725.jar:1.0.3]
+	at org.eclipse.aether.spi.connector.transport.AbstractTransporter.get(AbstractTransporter.java:68) ~[org.apache.maven.resolver.spi_1.0.3.v20170405-0725.jar:1.0.3]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$GetTaskRunner.runTask(BasicRepositoryConnector.java:456) ~[org.apache.maven.resolver.connector.basic_1.0.3.v20170405-0725.jar:1.0.3]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$TaskRunner.run(BasicRepositoryConnector.java:359) ~[org.apache.maven.resolver.connector.basic_1.0.3.v20170405-0725.jar:1.0.3]
+	... 13 common frames omitted
+2018-06-21 14:22:42,327 [Worker-51] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:ctor:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:ctor:1.0.0-20171109.080357-1 from http://download.eclipse.org/recommenders/models/oxygen/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:ctor:1.0.0-20171109.080357-1 from/to models (http://download.eclipse.org/recommenders/models/oxygen/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:453) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:255) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:232) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:303) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.5.2.v20180401-1226.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.5.2.v20180401-1226.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:168) [org.eclipse.recommenders.models.rcp_2.5.2.v20180401-1226.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.5.2.v20180401-1226.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56) [org.eclipse.core.jobs_3.9.3.v20180115-1757.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:ctor:1.0.0-20171109.080357-1 from http://download.eclipse.org/recommenders/models/oxygen/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:ctor:1.0.0-20171109.080357-1 from/to models (http://download.eclipse.org/recommenders/models/oxygen/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:247) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:215) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:594) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:512) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:430) ~[na:na]
+	... 8 common frames omitted
+2018-06-25 13:40:34,739 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-06-25 13:40:34,880 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Updating Gradle version information cache failed. Using outdated cache.
+2018-06-25 17:41:07,705 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-06-25 20:36:00,265 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-27 20:09:46,504 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-06-27 20:09:46,645 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Updating Gradle version information cache failed. Using outdated cache.
+2018-06-28 15:47:14,453 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-07-21 11:56:33,924 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-07-21 12:03:22,791 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-07-22 14:03:44,450 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-07-22 14:03:44,575 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Updating Gradle version information cache failed. Using outdated cache.
+2018-07-30 21:35:06,230 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-07-31 09:59:53,924 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-08-02 10:55:55,898 [Worker-7] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-08-03 20:26:56,777 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-08-04 08:05:39,122 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-08-05 14:34:57,158 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-08-05 15:13:27,607 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-08-06 16:02:40,004 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-08-07 08:02:19,522 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-08-08 12:11:00,183 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-08-09 18:50:25,048 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-08-10 13:16:49,239 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-08-12 10:46:28,237 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-08-12 10:46:38,445 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Updating Gradle version information cache failed. Using outdated cache.
+2018-08-14 15:33:53,091 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-08-15 09:43:37,972 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-08-21 20:42:19,953 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-08-21 20:42:31,156 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Updating Gradle version information cache failed. Using outdated cache.
+2018-08-23 15:35:59,325 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-08-27 09:07:55,023 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-08-30 20:37:33,874 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-08-30 23:24:11,962 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-08-31 10:00:09,816 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-08-31 11:37:05,960 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-08-31 20:49:22,273 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-09-01 08:31:06,647 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-09-01 10:06:11,647 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-10-06 10:56:22,017 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-10-21 22:38:22,025 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-11-10 19:14:00,920 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-11-14 17:55:35,488 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-12-11 09:51:07,706 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-12-11 10:32:36,737 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-12-11 10:46:53,924 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
